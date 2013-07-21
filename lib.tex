@@ -1,0 +1,78 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[hidelinks]{hyperref}
+%\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cite}
+\usepackage[babel=true]{csquotes} 
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[version=3]{mhchem}
+\usepackage{vmargin}
+\usepackage{pgfplots}
+
+%\usepackage{subfig}
+% subfig is deprecated see
+% http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions#Subfloats
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Numbers and units
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{sistyle}
+\usepackage[autolanguage]{numprint}
+%\usepackage{numprint}
+\newcommand\si[2]{\numprint[#2]{#1}}
+\newcommand\np[1]{\numprint{#1}}
+
+\usepackage{ifthen}
+%\input{config.tex}
+\newcommand{\solution}[1]
+{\ifthenelse{\equal{\Sol}{true}}{\subsection*{Solution}#1}{}}
+
+\DeclareMathOperator{\newdiff}{d} % use \dif instead
+\newcommand{\dif}{\newdiff\!}
+\newcommand{\fpart}[2]{\frac{\partial #1}{\partial #2}}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\arctanh}{arctanh}
+\newcommand{\ffpart}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\fdpart}[3]{\frac{\partial^2 #1}{\partial #2\partial #3}}
+\newcommand{\fdif}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\ffdif}[2]{\frac{\dif^2 #1}{\dif #2^2}}
+\newcommand{\constant}{\ensuremath{\mathrm{cst}}}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newcommand{\hypertitle}[3]{
+\usepackage{hyperref}
+{\renewcommand{\and}{\unskip, }
+\hypersetup{pdfauthor={#3},
+            pdftitle={FSAB1103 : Correction de l'examen de #2 #1},
+            pdfsubject={Math\'ematique}}
+}
+\ifthenelse{\equal{\Sol}{true}}%
+{\title{FSAB 1103 : Correction de l'examen de #2 #1}}%
+{\title{FSAB 1103 : Énoncé de l'examen de #2 #1}}
+\author{#3}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{Informations importantes}
+Ce document a été réalisé par les étudiants susnommés et
+est donc à prendre avec des ``pincettes''.
+Si vous observez des fautes ou avez des suggestions à faire,
+n'hésitez pas à nous contacter.
+On peut retrouver le code source à l'adresse suivante
+\begin{center}
+  \url{https://github.com/blegat/math3-examens}.
+\end{center}
+On y trouve aussi le contenu du \texttt{README} qui contient de plus
+amples informations, vous êtes invité à le lire.
+}

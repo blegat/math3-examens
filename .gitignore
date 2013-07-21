@@ -1,0 +1,15 @@
+*.aux
+*.out
+*.log
+*.toc
+*.swp
+*~
+*.pdf
+config.txt
+
+# latexmk
+*.fdb_latexmk
+*.fls
+
+# config file for smartcp
+config.yml
