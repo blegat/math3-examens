@@ -19,7 +19,7 @@ $t \geq 0$. La condition initiale est $u(s,0) = u_0\frac{s}{L}$ avec $L$ une con
 \solution{
   \begin{enumerate}
     \item
-      Supposons que $t$ soit exprimé en [\second], $x$ en [\meter] et $u$ en [$\gamma$]. Les dimension de $\alpha$ et $\beta$ sont respectivement $[\frac{1}{\second^2}]$ et $[\frac{1}{\second}]$. En effet, nous obtenons alors 
+      Supposons que $t$ soit exprimé en [\second], $x$ en [\meter] et $u$ en [$\gamma$]. Les dimension de $\alpha$ et $\beta$ sont respectivement $[\frac{1}{\second^2}]$ et $[\frac{1}{\second}]$. En effet, nous obtenons alors
       $[\frac{\meter\cdot \second \cdot \gamma}{\meter\cdot \second^2}] + [\frac{\gamma}{\second}] = [\frac{\gamma}{\second}]$.\\
 
     \item
@@ -57,9 +57,9 @@ $t \geq 0$. La condition initiale est $u(s,0) = u_0\frac{s}{L}$ avec $L$ une con
       \end{figure}
 
     \item
-      Nous avons le choix entre deux équations qui nous mènent au même résultat : 
+      Nous avons le choix entre deux équations qui nous mènent au même résultat :
       $$2\alpha xt \dif u = \beta u \dif x \text{\hspace{2cm}ou\hspace{2cm}} \dif u = \beta u \dif t.$$
-      Nous prendrons ici la deuxième : 
+      Nous prendrons ici la deuxième :
       $$\int_{u(s,0)}^{u(x,y)}\frac{\dif u'}{u} = \beta\int_0^t \dif t'.$$
       En développant les intégrales,
       \begin{align*}
@@ -90,26 +90,30 @@ $$\nabla ^2u = \frac{\partial^2u}{\partial r^2} +\frac{1}{r} \frac{\partial u}{\
       \end{enumerate}
 
     \item
-      Posons la séparation de variables suivante : 
+      Posons la séparation de variables suivante:
       $$u(r,\theta) = \Theta (\theta) \cdot R(r)$$
-      En injectant dans l'EDP de l'énoncé on obtient : 
+      En injectant dans l'EDP de l'énoncé on obtient:
       \begin{align*}
-        \frac{r^2R''+rR'}{R} & = -\frac{\Theta ''}{\Theta} =  k^2 & \text{car condition homogène en } \theta.
+        \frac{r^2R''+rR'}{R} & = -\frac{\Theta ''}{\Theta} =  k^2 & \text{avec $k > 0$ car condition homogène en } \theta.
       \end{align*}
+
       \paragraph{En $\Theta$ :}
       $$ \Theta '' + k^2 \Theta = 0$$
       La solution générale de cette équation est : $\Theta(\theta) = A \cos(k\theta) + B \sin(k\theta)$.\\
-      On calcule : $\Theta '(0) = B k = 0 \Longleftrightarrow B = 0$.\\
+      On calcule : $\Theta '(0) = B k = 0$ $B = 0$.
+
       De plus, nous savons que $\Theta$ est périodique et donc que $\Theta(\theta) = \Theta(\theta + 2\pi)$ et $\Theta'(\theta) = \Theta'(\theta + 2\pi)$. Nous trouvons donc que $k_n = n$ avec $n = 0,1,2,\ldots$.
       Donc,
       \begin{align*}
         \Theta_n(\theta) & = A_n\cos(n\theta) & \text{avec }n = 0,1,2,3,\ldots
       \end{align*}
+
       \paragraph{En $R$ :}
       $$r^2R''+rR'-n^2R = 0.$$
-      Pour $r\ne 0$ :\\
-
-      La solution générale de cette équation est : $R_n = C_nr^n+D_nr^{-n}$. Comme nous avons une solution finie en r=0 ($u(0,\theta) = u_0$), le terme $r^{-n}$ ne convient pas ici. Nous obtenons donc : 
+      La solution générale de cette équation est:
+      $R_n = C_nr^n+D_nr^{-n}$.
+      Comme nous avons une solution finie en $r = 0$ ($u(0,\theta) = u_0$),
+      le terme $r^{-n}$ ne convient pas ici. Nous obtenons donc:
       \begin{align*}
         R_n(r) & = C_nr^n & \text{avec }n = 0,1,2,3,\ldots\text{ et } r\ne 0.
       \end{align*}
@@ -118,9 +122,9 @@ $$\nabla ^2u = \frac{\partial^2u}{\partial r^2} +\frac{1}{r} \frac{\partial u}{\
       $$u(r,\theta) = F + \sum_{n=1}^{\infty} G_n\cos(n\theta)r^n.$$
       Calculons
       $$\frac{\partial u}{\partial r}(a,\theta) = \sum_{n=1}^{\infty}G_n n a^{n-1} \cos(n\theta) = g(\theta).$$
-      Par l'orthogonalité des cosinus, nous trouvons 
+      Par l'orthogonalité des cosinus, nous trouvons
       $$G_n n a^{n-1}\frac{\pi}{2} = \int_0^{\pi}g(\theta) \cos(n\theta) d\theta.$$
-      Finalement 
+      Finalement
       $$G_n = \frac{2\int_0^{\pi}g(\theta) \cos(n\theta) d\theta}{\pi n a^{n-1}}.$$
       Nous trouvons donc :
       $$u(r,\theta) = F + \frac{2}{\pi}\sum_{n=1}^{\infty} \frac{\int_0^{\pi}g(\theta) \cos(n\theta) d\theta \cos(n\theta)r^n}{ n a^{n-1}}.$$
@@ -136,7 +140,7 @@ On définit la fonction $$w = \arccos z = \frac{\pi}{2}-\int_0^z\frac{\dif z'}{\
 \item Obtenez les points de branchement de $w$ (\textbf{Aide}: $z+\sqrt{z^2-1}$ ne s'annule jamais). Proposez également un choix de coupure(s). Pour la suite, on utilisera la coupure principale.
 \item Vérifiez que la définition de $w$ est bien telle que $\cos w = z$.
 \item Obtenez l'expression de $w$ pour $z$ purement imaginaire ($z = iy$) et avec $y\geq 0$.
-\item Obtenez le développement en série de $w$ autour de $z_0$. (\textbf{Aide}: obtenez d'abord le développement de $\frac{dw}{\dif z}$). Quel est le rayon de convergence de la série ? 
+\item Obtenez le développement en série de $w$ autour de $z_0$. (\textbf{Aide}: obtenez d'abord le développement de $\frac{dw}{\dif z}$). Quel est le rayon de convergence de la série ?
 \end{enumerate}
 \rappelscomplexes
 
@@ -198,7 +202,7 @@ On définit la fonction $$w = \arccos z = \frac{\pi}{2}-\int_0^z\frac{\dif z'}{\
           &= \frac{\pi}{2}-\left[z +\frac{1}{2\cdot 3}z^3 + \frac{1\cdot 3}{2\cdot 4\cdot 5}z^5 + \frac{1\cdot 3\cdot 5}{2\cdot 4\cdot 6\cdot 7}z^7+\ldots\right]_0^z \\
           &= \frac{\pi}{2}- z -\frac{1}{2\cdot 3}z^3 - \frac{1\cdot 3}{2\cdot 4\cdot 5}z^5 - \frac{1\cdot 3\cdot 5}{2\cdot 4\cdot 6\cdot 7}z^7 - \ldots
       \end{align*}
-      Le rayon de convergence est de 1 (= écart entre le point à évoluer, ici $z = 0$, et la première singularité, ici $z = 1$ et $z = -1$). 
+      Le rayon de convergence est de 1 (= écart entre le point à évoluer, ici $z = 0$, et la première singularité, ici $z = 1$ et $z = -1$).
   \end{enumerate}
 }
 
