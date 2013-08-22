@@ -1,5 +1,24 @@
 \input{../../lib.tex}
 
+\newcommand{\X}[1]{\ifthenelse{\equal{#1}{true}}{X}{}}
+
+\newcommand{\vraioufaux}[1]{
+  \begin{center}
+    \begin{tabular}{p{0.7\textwidth}|c|c|}
+      $+1$ point si bonne réponse, $-0.5$ point si mauvaise réponse,
+      0 point si abstention & Vrai & Faux\\
+      \hline
+      (a) L'EDP a un caractère convectif et diffusif:&\X{#1}&\\
+      (b) Le problème de condition initiale, avec $u(s, 0) = f(s)$ donné,
+      est toujours bien posé:&\X{#1}&\\
+      Supposons, pour la suite, le problème bien posé. Alors,&&\\
+      (c) on ne peut trouver la solution pour $t \geq 0$:&\X{#1}&\\
+      (d) $I(t)=\int_{-\infty}^{\infty} u(x,t)\dif x$ est
+      conservée au cours du temps:&\X{#1}&\\
+    \end{tabular}
+  \end{center}
+}
+
 \hypertitle{2013}{Janvier}{Legat Beno\^it}
 
 \section*{Question 1}
@@ -11,20 +30,7 @@ On considère d'abord un \textbf{problème en milieu infini}
 ($-\infty < x < \infty$) et avec $u\to 0$ à l'infini.\\
 Répondre directement dans le tableau avec des ``X'':
 
-\begin{center}
-  \begin{tabular}{p{0.7\textwidth}|l|l|}
-    $+1$ point si bonne réponse, $-0.5$ point si mauvaise réponse,
-    0 point si abstention & Vrai & Faux\\
-    \hline
-    (a) L'EDP a un caractère convectif et diffusif:&&\\
-    (b) Le problème de condition initiale, avec $u(s, 0) = f(s)$ donné,
-    est toujours bien posé:&&\\
-    Supposons, pour la suite, le problème bien posé. Alors,&&\\
-    (c) on ne peut trouver la solution pour $t \geq 0$:&&\\
-    (d) $I(t)=\int_{-\infty}^{\infty} u(x,t)\dif x$ est
-    conservée au cours du temps:&&\\
-  \end{tabular}
-\end{center}
+\vraioufaux{false}
 
 On considère ensuite un \textbf{problème en milieu semi-infini}
 ($0 \leq x < \infty$) et pour l'EDP avec $\alpha = 0$.
@@ -46,6 +52,19 @@ avec $u_0$ et $B$ constants.
 \end{enumerate}
 
 \solution{
+
+  \vraioufaux{true}
+
+  \begin{enumerate}[a)]
+    \item C'est une équation de transport conservative.
+    \item \label{en:pos}
+      C'est vrai pour les temps $> 0$,
+      en temps $< 0$ ca ne fonctionne plus puisqu'on
+      a une déformation de l'onde.
+    \item Ça découle de la \ref{en:pos}).
+    \item C'est expliqué dans le syllabus.
+  \end{enumerate}
+
   L'EDP devient
   \begin{align*}
     \fpart{u}{t} + \fpart{(cu)}{x} & = 0\\
