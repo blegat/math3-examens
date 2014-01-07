@@ -33,6 +33,9 @@
 
 \usepackage{ifthen}
 %\input{config.tex}
+
+\ifthenelse{\isundefined{\Sol}}{\def\Sol{true}}{}
+
 \newcommand{\solution}[1]
 {\ifthenelse{\equal{\Sol}{true}}{\subsection*{Solution}#1}{}}
 
