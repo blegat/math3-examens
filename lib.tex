@@ -50,10 +50,13 @@
 \newcommand{\ffdif}[2]{\frac{\dif^2 #1}{\dif #2^2}}
 \newcommand{\constant}{\ensuremath{\mathrm{cst}}}
 
-\newcommand{\rappelscomplexes}{
+\newcommand{\rappelscomplexesbase}{
   \textbf{Rappels:} $\sin(w) = \frac{1}{2i}\left(e^{iw}-e^{-iw}\right)
   = \frac{1}{i}\sinh(iw)$ et
   $\cos(w) = \frac{1}{2}\left(e^{iw}+e^{-iw}\right) = \cosh(iw)$.
+}
+\newcommand{\rappelscomplexes}{
+  \rappelscomplexesbase
   On a aussi, pour $|Z| < 1$, que
   $\frac{1}{1+Z} = 1 - Z + Z^2 - Z^3 + \ldots$
 }
