@@ -16,3 +16,8 @@ C'est bien évidemment créé automatiquement si vous utilisez le `Makefile`.
 
 La dernière version des pdf est disponible sur
 [EPL-Backup](https://www.dropbox.com/sh/5a1dfg8e17bbgkw/bgVWq1icjf).
+
+Si vous ne connaissez pas Git,
+lisez la partie *Utilisation linéaire de Git* de
+[ce tutoriel](http://sites.uclouvain.be/SystInfo/notes/Outils/html/git.html)
+écrit par Benoît Legat.
