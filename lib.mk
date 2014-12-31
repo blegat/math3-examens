@@ -44,6 +44,7 @@ $(PDF_NAME_SOL): $(MAIN_NAME_SOL).tex
 
 clean:
 	latexmk -C
+	$(RM) *.aux *.fdb_latexmk *.log *.out *.pdf
 
 # It makes more sense to show the sol since more can be checked
 show: $(PDF_NAME_SOL)
