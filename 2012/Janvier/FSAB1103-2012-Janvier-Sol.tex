@@ -81,54 +81,124 @@ $$\nabla ^2u = \frac{\partial^2u}{\partial r^2} +\frac{1}{r} \frac{\partial u}{\
 \solution{
   \begin{enumerate}
     \item
-      À faire...\\
-      Nous pouvons résumer les conditions de la sorte :
+      $n$ est la normale, au bords du demi-cercle, $n$ est le long de $r$ et au bord du diamètre, $n$ est le long de $\theta$ donc
+      nous pouvons résumer les conditions de la sorte:
       \begin{enumerate}
         \item $\frac{\partial u}{\partial r}(a,\theta) = g(\theta)$;
         \item $\frac{\partial u}{\partial \theta}(r,0) = 0$;
-        \item $u(0,\theta) = u_0 $.\\
+        \item $\frac{\partial u}{\partial \theta}(r,\pi) = 0$;
+        \item $u(0,\theta) = u_0 $.
       \end{enumerate}
-
     \item
+      Il y a 2 conditions non-homogènes, on va donc devoir distinguer 2 cas.
+      Par superposition, on aura une solution qui est la somme des deux si il y a une solution dans chaque cas.
+      Dans chaque cas, on prendra la sommes des solutions pour chaque mode ayant une solution avant d'attaquer la solution non-homogène.
+
       Posons la séparation de variables suivante:
       $$u(r,\theta) = \Theta (\theta) \cdot R(r)$$
       En injectant dans l'EDP de l'énoncé on obtient:
       \begin{align*}
-        \frac{r^2R''+rR'}{R} & = -\frac{\Theta ''}{\Theta} =  k^2 & \text{avec $k > 0$ car condition homogène en } \theta.
+        -\frac{r^2R''+rR'}{R} & = \frac{\Theta ''}{\Theta} =  \pm k^2 \text{ ou } 0
       \end{align*}
+      en posant $k > 0$ sans perte de généralité (vu qu'il est au carré).
+      \begin{description}
+        \item[Cas $u_0 = 0$]
+          Commençons par faire les 3 modes
+          \begin{description}
+            \item[Mode $+k^2$]
+              On commence on $\Theta$ car c'est lui qui a 2 conditions homogènes.
 
-      \paragraph{En $\Theta$ :}
-      $$ \Theta '' + k^2 \Theta = 0$$
-      La solution générale de cette équation est : $\Theta(\theta) = A \cos(k\theta) + B \sin(k\theta)$.\\
-      On calcule : $\Theta '(0) = B k = 0$ $B = 0$.
+              \textbf{En $\Theta$ :}
+              $$\Theta '' - k^2 \Theta = 0$$
+              La solution générale de cette équation est : $\Theta(\theta) = A \exp(k\theta) + B \exp(k\theta)$.\\
+              En imposant les 2 conditions frontières, $A = B = 0$, il n'y a donc pas de mode $+k^2$.
+            \item[Mode $-k^2$]
+              \textbf{En $\Theta$ :}
+              $$ \Theta '' + k^2 \Theta = 0$$
+              La solution générale de cette équation est : $\Theta(\theta) = A \cos(k\theta) + B \sin(k\theta)$.
+              On calcule
+              \[ \Theta'(\theta) = -A\sin(k\theta) + B\cos(k\theta) \]
+              $\Theta'(0)$ nous donne $B = 0$
+              puis $\Theta'(\pi)$ nous donne $k_n = n$ avec $n = 0, 1, 2, \ldots$.
+              Donc,
+              \begin{align*}
+                \Theta_n(\theta) & = A_n\cos(n\theta) & \text{avec }n = 0,1,2,3,\ldots
+              \end{align*}
 
-      De plus, nous savons que $\Theta$ est périodique et donc que $\Theta(\theta) = \Theta(\theta + 2\pi)$ et $\Theta'(\theta) = \Theta'(\theta + 2\pi)$. Nous trouvons donc que $k_n = n$ avec $n = 0,1,2,\ldots$.
-      Donc,
-      \begin{align*}
-        \Theta_n(\theta) & = A_n\cos(n\theta) & \text{avec }n = 0,1,2,3,\ldots
-      \end{align*}
+              \textbf{En $R$ :}
+              $$r^2R''+rR'-n^2R = 0.$$
+              La solution générale de cette équation est:
+              $R_n = C_nr^n+D_nr^{-n}$.
+              La condition en $r = 0$ ($u(0,\theta) = u_0$) donne $C_n \cdot 0  + D_n \cdot \infty = 0$.
+              On voit que $D_n$ doit valoir 0.
+              En fait, comme nous avons une solution finie en $r = 0$,
+              le terme $r^{-n}$ ne convient pas ici.
+              Nous obtenons donc:
+              \begin{align*}
+                R_n(r) & = C_nr^n & \text{avec }n = 0,1,2,3,\ldots\text{ et } r \ne 0.
+              \end{align*}
+            \item[Mode $0$]
+              \textbf{En $\Theta$ :}
+              $$\Theta'' = 0$$
+              donc $\Theta(\theta) = A\theta + B$.
+              Avec les deux conditions frontières, on trouve $A = 0$.
 
-      \paragraph{En $R$ :}
-      $$r^2R''+rR'-n^2R = 0.$$
-      La solution générale de cette équation est:
-      $R_n = C_nr^n+D_nr^{-n}$.
-      Comme nous avons une solution finie en $r = 0$ ($u(0,\theta) = u_0$),
-      le terme $r^{-n}$ ne convient pas ici. Nous obtenons donc:
-      \begin{align*}
-        R_n(r) & = C_nr^n & \text{avec }n = 0,1,2,3,\ldots\text{ et } r\ne 0.
-      \end{align*}
+              \textbf{En $R$ :}
+              $$r^2R''+rR'= 0.$$
+              A comme solution une constant $C$ également.
+              Mais la condition en $r = 0$ impose que $C = 0$.
+              Il n'y a donc que la solution triviale.
+          \end{description}
+          \textbf{En $u$ :}
+          $$u_1(r,\theta) = \sum_{n=1}^{\infty} G_n\cos(n\theta)r^n.$$
+          Calculons
+          $$\frac{\partial u}{\partial r}(a,\theta) = \sum_{n=1}^{\infty}G_n n a^{n-1} \cos(n\theta) = g(\theta).$$
+          Par l'orthogonalité des cosinus, nous trouvons
+          $$G_n n a^{n-1}\frac{\pi}{2} = \int_0^{\pi}g(\theta) \cos(n\theta) d\theta.$$
+          Finalement
+          $$G_n = \frac{2\int_0^{\pi}g(\theta) \cos(n\theta) d\theta}{\pi n a^{n-1}}.$$
+          Nous trouvons donc :
+          $$u_1(r,\theta) = \frac{2}{\pi}\sum_{n=1}^{\infty} \frac{\int_0^{\pi}g(\theta) \cos(n\theta) d\theta \cos(n\theta)r^n}{ n a^{n-1}}.$$
+        \item[Cas $g(\theta) = 0$]
+          Commençons par faire les 3 modes
+          \begin{description}
+            \item[Mode $+k^2$]
+              Pareil que l'autre cas, pas de solution.
+            \item[Mode $-k^2$]
+              \textbf{En $\Theta$ :}
+              Pareil que l'autre cas,
+              \begin{align*}
+                \Theta_n(\theta) & = A_n\cos(n\theta) & \text{avec }n = 0,1,2,3,\ldots
+              \end{align*}
 
-      \paragraph{En $u$ :}
-      $$u(r,\theta) = F + \sum_{n=1}^{\infty} G_n\cos(n\theta)r^n.$$
-      Calculons
-      $$\frac{\partial u}{\partial r}(a,\theta) = \sum_{n=1}^{\infty}G_n n a^{n-1} \cos(n\theta) = g(\theta).$$
-      Par l'orthogonalité des cosinus, nous trouvons
-      $$G_n n a^{n-1}\frac{\pi}{2} = \int_0^{\pi}g(\theta) \cos(n\theta) d\theta.$$
-      Finalement
-      $$G_n = \frac{2\int_0^{\pi}g(\theta) \cos(n\theta) d\theta}{\pi n a^{n-1}}.$$
-      Nous trouvons donc :
-      $$u(r,\theta) = F + \frac{2}{\pi}\sum_{n=1}^{\infty} \frac{\int_0^{\pi}g(\theta) \cos(n\theta) d\theta \cos(n\theta)r^n}{ n a^{n-1}}.$$
-      Comme l'énoncé nous impose que $u(0,\theta) = u_0$, nous trouvons finalement :
+              \textbf{En $R$ :}
+              Comme pour l'autre cas, on a
+              $R_n(r) = C_nr^n$.
+              Mais la condition en $r = 0$ nous donne
+              $C_n \cdot 0 = u_0$
+              qui est impossible à respecter.
+              Pas de mode $-k^2$ non plus donc.
+            \item[Mode $0$]
+              \textbf{En $\Theta$ :}
+              Comme pour l'autre cas, $\Theta(\theta) = A$.
+
+              \textbf{En $R$ :}
+              Comme pour l'autre cas, $R(r) = C$.
+              La condition homogène est
+              $R'(a) = 0$ qui est ici respectée sans problème.
+          \end{description}
+          \textbf{En $u$ :}
+          On a
+          $$u_2(r,\theta) = AC$$
+          qu'on peut rassembler en une constante $D$
+          $$u_2(r,\theta) = D.$$
+          Calculons
+          $$u_2(0,\theta) = D = u_0.$$
+          d'où $u_0 = D$
+          Nous trouvons donc :
+          $$u_1(r,\theta) = u_0.$$
+      \end{description}
+      Par superposition, on a
       $$u(r,\theta) = u_0 + \frac{2}{\pi}\sum_{n=1}^{\infty} \frac{\int_0^{\pi}g(\theta) \cos(n\theta) d\theta \cos(n\theta)r^n}{ n a^{n-1}}.$$
   \end{enumerate}
 }
