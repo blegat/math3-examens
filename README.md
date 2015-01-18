@@ -1,6 +1,8 @@
 Examens de FSAB1103
 ===================
 
+**DEPRECATED: use [this repo](https://github.com/Gp2mv3/Syntheses) now.**
+
 Nous avons comme ambition de rassembler ici un bon nombre de correctifs
 pour ce cours.
 Ceci est bien sûr impossible sans votre aide.
